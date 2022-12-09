@@ -1,0 +1,31 @@
+:root {
+    --grid-num: 16;
+}
+
+#user-input {
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(var(--grid-num), 8px);
+    grid-template-rows: repeat(var(--grid-num), 8px);
+    /*grid-template-rows: repeat(auto-fill, minmax(200px, 1fr)); */
+}
+
+.cell {
+    background-color: black;
+}
+
+.cell::before {
+    content: "";
+    padding-bottom: 100%;
+    display:block;
+}
+
+.hovered-cell {
+    background-color: aqua;
+}
