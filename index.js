@@ -2,41 +2,24 @@ let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
-const createGrid = (int_num) => {
+const createDrawingBoard = (gridSize) => {
     const container = document.querySelector('#container');
-    container.style.setProperty('--grid-num', int_num); 
-    for(let i = 0; i < (int_num**2) ; i++) {
-        let div = document.createElement('div');
-        container.appendChild(div).className = "cell";
-    };
-    
+    container.style.setProperty('--grid-num', gridSize); 
+    for(let i = 0; i < (gridSize**2) ; i++) {
+        const cell = document.createElement('div');
+        cell.addEventListener('mouseover', changeColor);
+        cell.addEventListener('mousedown', changeColor);
+        container.appendChild(cell).className = "cell";
+    }; 
 };
 
 function changeColor(e) {
-    console.log(mouseDown);
-    if (e.type === 'mouseover' && !mouseDown) {
-        console.log('im here')
-        return; // if not clicked AND hovered, do not change color
-    }
-    e.target.style.background = 'white';
+    // if not clicked AND hovered, do not change color
+    if (e.type === 'mouseover' && !mouseDown) return;
+    e.target.style.background = 'black';
 }
 
-function drawOnCell() {
-    const cell = document.querySelectorAll('.cell');
-    cell.forEach(cell => {
-        // draw if you do click OR hover
-        cell.addEventListener('mouseover', changeColor);
-        cell.addEventListener('mousedown', changeColor);
-        
-        
-    });
-};
-
-
-
-
-createGrid(100);
-drawOnCell();
+createDrawingBoard(100);
 
 
 
