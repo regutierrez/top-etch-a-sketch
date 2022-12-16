@@ -6,6 +6,25 @@ document.body.addEventListener('mouseup', () => (mouseDown = false));
 const container = document.querySelector('#container');
 const slider = document.getElementById('slider');
 const size = document.getElementById('size');
+const colorPicker = document.getElementById('colorPicker');
+const colorBtn = document.getElementById('color');
+const rainbowBtn = document.getElementById('rainbow');
+const shade = document.getElementById('shade');
+const eraser = document.getElementById('eraser');
+const clear = document.getElementById('clear');
+
+//Change modes
+//click btn => change mode (btn becomes active, others are deactivated)
+// => btn gets highlighted => 
+colorBtn.addEventListener('click',changeMode(colorBtn.id));
+rainbowBtn.addEventListener('click',changeMode(rainbowBtn.id));
+shade.addEventListener('click',changeMode(shade.id));
+eraser.addEventListener('click',changeMode(eraser.id));
+clear.addEventListener('click',changeMode(clear.id));
+
+function changeMode(mode) {
+
+}
 
 //Slider function
 slider.addEventListener('change', (e) => {
