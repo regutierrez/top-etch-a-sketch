@@ -1,12 +1,18 @@
 :root {
     --grid-num: 16;
-    --default-dark: #78716c;
+    --default-dark: #0f172a;
+    --default-gray: #78716c;
     --default-white: #fafaf9;
 }
 
 html {
-    background-color: var(--default-white);
+    position: relative;
     min-height: 100%;
+}
+
+body {
+    background-color: var(--default-white);
+    color: var(--default-dark);
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -39,10 +45,8 @@ main {
 
 #container {
     display: grid;
-    justify-content: center;
-    align-content: center;
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     grid-template-columns: repeat(var(--grid-num), 1fr);
     grid-template-rows: repeat(var(--grid-num), 1fr);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -64,8 +68,32 @@ footer {
     gap: 10px;
     width: 100%;
     padding: 10px;
+    margin-top: 20px;
+    font-size: 20px;
 }
 
 .fa-github {
+    color: var(--default-dark);
+}:root {
+    --grid-num: 16;
+    --default-dark: #0f172a;
+    --default-gray: #78716c;
+    --default-white: #fafaf9;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 
 }

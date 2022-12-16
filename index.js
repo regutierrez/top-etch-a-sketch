@@ -2,7 +2,16 @@ let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
-const createDrawingBoard = (gridSize) => {
+//Slider functions
+const slider = document.getElementById('slider');
+const size = document.getElementById('size');
+slider.onmousemove = (e) => updateSize(e.target.value);
+
+function updateSize(newValue) {
+    size.innerHTML = `${newValue} x ${newValue}`;
+}
+
+function createDrawingBoard(gridSize) {
     const container = document.querySelector('#container');
     container.style.setProperty('--grid-num', gridSize); 
     for(let i = 0; i < (gridSize**2) ; i++) {
@@ -11,7 +20,7 @@ const createDrawingBoard = (gridSize) => {
         cell.addEventListener('mousedown', changeColor);
         container.appendChild(cell).className = "cell";
     }; 
-};
+}
 
 function changeColor(e) {
     // if not clicked AND hovered, do not change color
@@ -19,7 +28,7 @@ function changeColor(e) {
     e.target.style.background = 'black';
 }
 
-createDrawingBoard(100);
+createDrawingBoard();
 
 
 
