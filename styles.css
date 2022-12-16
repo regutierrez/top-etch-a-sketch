@@ -1,9 +1,11 @@
 :root {
     --grid-num: 16;
+    --default-dark: #78716c;
+    --default-white: #fafaf9;
 }
 
 html {
-    background-color: #ededed;
+    background-color: var(--default-white);
     min-height: 100%;
     font-family: 'Montserrat', sans-serif;
 }
@@ -51,6 +53,7 @@ main {
     background-color: white;
 }
 
+/* FOOTER */
 footer {
     position: absolute;
     bottom: 0;
@@ -61,4 +64,8 @@ footer {
     gap: 10px;
     width: 100%;
     padding: 10px;
+}
+
+.fa-github {
+
 }
