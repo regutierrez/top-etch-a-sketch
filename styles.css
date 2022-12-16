@@ -55,6 +55,7 @@ main {
 
 .cell {
     background-color: white;
+    user-select: none;
 }
 
 /* FOOTER */
