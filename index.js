@@ -16,9 +16,11 @@ const clear = document.getElementById('clear');
 let currentMode = 'color'; 
 let gridSize = slider.value;
 
+let shadingR = 255;
+let shadingG = 255;
+let shadingB = 255;
+
 //Change modes
-//click btn => change mode (btn becomes active, others are deactivated)
-// => btn gets highlighted => 
 colorBtn.addEventListener('click', () => changeMode(colorBtn.id));
 rainbowBtn.addEventListener('click', () => changeMode(rainbowBtn.id));
 shade.addEventListener('click', () => changeMode(shade.id));
@@ -79,12 +81,16 @@ function draw(e) {
         e.target.style.background = `rgb(${randomR},${randomG},${randomB})`;
     }
     if (currentMode === shade.id) {
-        
+        e.target.classList.toggle("shade");
+        shadingR -= 10;
+        shadingG -= 10;
+        shadingB -= 10;
+        e.target.style.background = `rgb(${shadingR},${shadingG},${shadingB})`;
+    }
     }
     if (currentMode === eraser.id) {
         
     }
-}
 
 createBoard(slider.value);
 
