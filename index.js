@@ -16,11 +16,21 @@ const clear = document.getElementById('clear');
 //Change modes
 //click btn => change mode (btn becomes active, others are deactivated)
 // => btn gets highlighted => 
-colorBtn.addEventListener('click',changeMode(colorBtn.id));
-rainbowBtn.addEventListener('click',changeMode(rainbowBtn.id));
-shade.addEventListener('click',changeMode(shade.id));
-eraser.addEventListener('click',changeMode(eraser.id));
-clear.addEventListener('click',changeMode(clear.id));
+colorBtn.addEventListener('click', function() {
+    changeMode(colorBtn.id);
+});
+rainbowBtn.addEventListener('click', function() {
+    changeMode(rainbowBtn.id);
+});
+shade.addEventListener('click', function(){
+    changeMode(shade.id);
+});
+eraser.addEventListener('click', function(){
+    changeMode(eraser.id);
+});
+clear.addEventListener('click', function() {
+    refreshBoard();
+});
 
 function changeMode(mode) {
 
