@@ -49,6 +49,16 @@ main {
     width: 100%;
 }
 
+button {
+    border: 1px solid var(--default-dark);
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.active {
+    background-color: #cbd5e1;
+}
+
 #size {
     text-align: center;
 }

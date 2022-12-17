@@ -37,6 +37,33 @@ function changeMode(mode) {
 
 function activateBtn(mode) {
     console.log(mode);
+
+    switch(mode) {
+        case colorBtn.id:
+            colorBtn.classList.add('active');
+            rainbowBtn.classList.remove('active');
+            shade.classList.remove('active');
+            eraser.classList.remove('active');
+            break;
+        case rainbowBtn.id:
+            rainbowBtn.classList.add('active');
+            colorBtn.classList.remove('active');
+            shade.classList.remove('active');
+            eraser.classList.remove('active');
+             break;
+        case shade.id:
+            shade.classList.add('active');
+            rainbowBtn.classList.remove('active');
+            colorBtn.classList.remove('active');
+            eraser.classList.remove('active');
+            break;
+        case eraser.id:
+            eraser.classList.add('active');
+            rainbowBtn.classList.remove('active');
+            shade.classList.remove('active');
+            colorBtn.classList.remove('active');
+            break;
+   }    
 }
 
 //Slider function
@@ -85,9 +112,7 @@ function draw(e) {
     }
     else if (currentMode == shade.id) {
         const shadedCell = e.target;
-        console.log(shadedCell.hasOwnProperty('shade'));
         if ('shade' in shadedCell) {
-            console.log('in if' + shadeValue);
             shadedCell.shade += 1;
         } else {
             shadedCell.shade = 0;
@@ -96,7 +121,6 @@ function draw(e) {
         e.target.style.background = `rgb(${shadingRGB},${shadingRGB},${shadingRGB})`;
     }
      else if (currentMode == eraser.id) {
-        console.log('eraser test')
         e.target.style.background = 'white';
     }
    }
