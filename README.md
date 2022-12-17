@@ -1,5 +1,3 @@
-# ETCH-A-SKETCH
+# SKETCHER (ETCH-A-SKETCH)
 
-bugs:
-
-- slider not properly working when accessed in Firefox
+Live preview 👉 https://regutierrez.github.io/etch-a-sketch/
