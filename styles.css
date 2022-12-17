@@ -3,6 +3,7 @@
     --default-dark: #0f172a;
     --default-gray: #78716c;
     --default-white: #fafaf9;
+    --shading-increment: 10;
 }
 
 html {

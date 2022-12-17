@@ -15,6 +15,7 @@ const clear = document.getElementById('clear');
 
 let currentMode = 'color'; 
 let gridSize = slider.value;
+let shadeValue = 0;
 
 let shadingR = 255;
 let shadingG = 255;
@@ -80,16 +81,25 @@ function draw(e) {
         const randomB = randomRGB();
         e.target.style.background = `rgb(${randomR},${randomG},${randomB})`;
     }
-    if (currentMode === shade.id) {
-        e.target.classList.toggle("shade");
-        shadingR -= 10;
-        shadingG -= 10;
-        shadingB -= 10;
+    if (currentMode == shade.id) {
+        const shadedCell = e.target;
+        console.log(shadedCell.hasOwnProperty('shade-value'));
+        if ('shade-value' in shadedCell) {
+            shadeValue = shadedCell.shade;
+            console.log('in if' + shadeValue);
+            shadedCell.setProperty('shade-value', (shadeValue + 1));
+            console.log(shadeValue);
+        } else {
+            e.target.setAttribute('shade-value', shadeValue);
+        }
+        shadingR -= shadeValue * 10;
+        shadingG -= shadeValue * 10;
+        shadingB -= shadeValue * 10;
         e.target.style.background = `rgb(${shadingR},${shadingG},${shadingB})`;
     }
     }
     if (currentMode === eraser.id) {
-        
+        e.target.style.background = 'white';
     }
 
 createBoard(slider.value);
