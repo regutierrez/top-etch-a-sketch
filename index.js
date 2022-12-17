@@ -15,8 +15,8 @@ const clear = document.getElementById('clear');
 
 let currentMode = 'color'; 
 let gridSize = slider.value;
+let colorSel = colorPicker.value;
 let shadeValue = 0;
-
 let shadingR = 255;
 let shadingG = 255;
 let shadingB = 255;
@@ -27,6 +27,11 @@ rainbowBtn.addEventListener('click', () => changeMode(rainbowBtn.id));
 shade.addEventListener('click', () => changeMode(shade.id));
 eraser.addEventListener('click', () => changeMode(eraser.id));
 clear.addEventListener('click', () => refreshBoard(gridSize));
+colorPicker.addEventListener('change', () => {
+    console.log('color picker test')
+    colorSel = colorPicker.value;
+    console.log(colorSel);
+});
 
 function changeMode(mode) {
     currentMode = mode;
@@ -73,7 +78,7 @@ function draw(e) {
     // if not clicked AND hovered, do not change color
     if (e.type === 'mouseover' && !mouseDown) return;
     if (currentMode == colorBtn.id) {  
-        e.target.style.background = 'black';
+        e.target.style.background = colorSel;
     }
     if (currentMode == rainbowBtn.id) {
         const randomR = randomRGB();
@@ -81,7 +86,7 @@ function draw(e) {
         const randomB = randomRGB();
         e.target.style.background = `rgb(${randomR},${randomG},${randomB})`;
     }
-    if (currentMode == shade.id) {
+    else if (currentMode == shade.id) {
         const shadedCell = e.target;
         console.log(shadedCell.hasOwnProperty('shade-value'));
         if ('shade-value' in shadedCell) {
@@ -97,10 +102,11 @@ function draw(e) {
         shadingB -= shadeValue * 10;
         e.target.style.background = `rgb(${shadingR},${shadingG},${shadingB})`;
     }
-    }
-    if (currentMode === eraser.id) {
+     else if (currentMode == eraser.id) {
+        console.log('eraser test')
         e.target.style.background = 'white';
     }
+   }
 
 createBoard(slider.value);
 
