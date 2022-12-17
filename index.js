@@ -17,9 +17,6 @@ let currentMode = 'color';
 let gridSize = slider.value;
 let colorSel = colorPicker.value;
 let shadeValue = 0;
-let shadingR = 255;
-let shadingG = 255;
-let shadingB = 255;
 
 //Change modes
 colorBtn.addEventListener('click', () => changeMode(colorBtn.id));
@@ -88,19 +85,15 @@ function draw(e) {
     }
     else if (currentMode == shade.id) {
         const shadedCell = e.target;
-        console.log(shadedCell.hasOwnProperty('shade-value'));
-        if ('shade-value' in shadedCell) {
-            shadeValue = shadedCell.shade;
+        console.log(shadedCell.hasOwnProperty('shade'));
+        if ('shade' in shadedCell) {
             console.log('in if' + shadeValue);
-            shadedCell.setProperty('shade-value', (shadeValue + 1));
-            console.log(shadeValue);
+            shadedCell.shade += 1;
         } else {
-            e.target.setAttribute('shade-value', shadeValue);
+            shadedCell.shade = 0;
         }
-        shadingR -= shadeValue * 10;
-        shadingG -= shadeValue * 10;
-        shadingB -= shadeValue * 10;
-        e.target.style.background = `rgb(${shadingR},${shadingG},${shadingB})`;
+        const shadingRGB = 255 - (shadedCell.shade * 10);
+        e.target.style.background = `rgb(${shadingRGB},${shadingRGB},${shadingRGB})`;
     }
      else if (currentMode == eraser.id) {
         console.log('eraser test')
