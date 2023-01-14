@@ -1,3 +1,3 @@
 # SKETCHER (ETCH-A-SKETCH)
 
-Live preview 👉 https://regutierrez.github.io/etch-a-sketch/
+Live preview 👉 https://regutierrez.github.io/top-etch-a-sketch/
